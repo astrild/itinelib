@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#AdminAbonnesIndex.jsp"
+  PATH="/AdminAbonnesIndex.jsp" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#AdminAbonnesIndex.jsp:0" NAME="item"
+   PATH="/AdminAbonnesIndex.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="detail::#AdminAbonnesShow.jsp" NAME="output"
+    PATH="/AdminAbonnesShow.jsp" TARGET="rules:#AdminAbonnesShow.jsp"
+    TITLE="detail" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="recherche::#AdminAbonnesIndex.jsp"
+    NAME="output1" PATH="/AdminAbonnesIndex.jsp"
+    TARGET="rules:#AdminAbonnesIndex.jsp" TITLE="recherche" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="modifier::#AdminAbonnesUpdate.jsp"
+    NAME="output2" PATH="/AdminAbonnesUpdate.jsp"
+    TARGET="rules:#AdminAbonnesUpdate.jsp" TITLE="modifier" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="resilier::#AdminAbonnesIndex.jsp"
+    NAME="output3" PATH="/AdminAbonnesIndex.jsp"
+    TARGET="rules:#AdminAbonnesIndex.jsp" TITLE="resilier" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#AdminAbonnesShow.jsp"
+  PATH="/AdminAbonnesShow.jsp" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#AdminAbonnesShow.jsp:0" NAME="item"
+   PATH="/AdminAbonnesShow.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#AdminAbonnesIndex.jsp" NAME="output"
+    PATH="/AdminAbonnesIndex.jsp" TARGET="rules:#AdminAbonnesIndex.jsp"
+    TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#AdminAbonnesForm.jsp"
+  PATH="/AdminAbonnesForm.jsp" SHAPE="256,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#AdminAbonnesForm.jsp:0" NAME="item"
+   PATH="/AdminAbonnesForm.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#AdminAbonnesIndex.jsp" NAME="output"
+    PATH="/AdminAbonnesIndex.jsp" TARGET="rules:#AdminAbonnesIndex.jsp"
+    TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#AdminAbonnesUpdate.jsp"
+  PATH="/AdminAbonnesUpdate.jsp" SHAPE="256,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#AdminAbonnesUpdate.jsp:0" NAME="item"
+   PATH="/AdminAbonnesUpdate.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#AdminAbonnesIndex.jsp" NAME="output"
+    PATH="/AdminAbonnesIndex.jsp" TARGET="rules:#AdminAbonnesIndex.jsp"
+    TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

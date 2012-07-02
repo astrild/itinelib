@@ -1,0 +1,202 @@
+﻿
+
+<!-- OK MANQUE JAVASCRIPT -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Itinélib - ajouter abonne</title>
+
+<!-- DEBUT STYLESHEETS -->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/custom.css" rel="stylesheet">
+<link href="../../../assets/css/datepicker.css" rel="stylesheet">
+<!-- FIN STYLESHEETS -->
+
+<!-- Javascript -->
+<script src="../../../assets/js/jquery.js"></script>
+<script src="../../../assets/js/bootstrap-dropdown.js"></script>
+<script src="../../../assets/js/bootstrap-datepicker.js"></script>
+<script src="../../../assets/js/custom.js"></script>
+
+</head>
+<body>
+
+	<!-- DEBUT ADMIN NAVBAR -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="../abonnes/index.html">
+					<img alt="" src="../../../assets/img/logo.png" id="logo">
+				</a>
+				
+				<ul class="nav">
+					<li><h2>Administration</h2></li>
+					<li><a href="../abonnes/index.html">Abonnés</a></li>
+					<li><a href="../locations/index.html">Points location</a></li>
+					<li><a href="../vehicules/index.html">Véhicules</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- FIN ADMIN NAVBAR -->
+	
+<!-- DEBUT CONTAINER  -->
+<div class="container-fluid">
+
+  <table class="row-fluid">
+		<td><h1>Nouveau client</h1></td>
+		<td><a class="btn btn-primary btn-large" style="float: right;" href="./index.html">Retour</a></td>
+	</table>
+		
+	<div class="row-fluid">
+
+		<!-- DEBUT FORMULAIRE NEW ABONNE -->
+		<div class="span9">
+		
+			<form id="boxRechercher" class="form-horizontal">
+
+				<div class="well">
+					<h3>Choix de l'abonnement</h3>
+					<div class="control-group">
+						<label class="control-label" for="choixAbonnemen">Abonnement:</label>
+						<div class="controls">
+							<select id="choixAbonnement" class="span4">
+								<option>Voiture</option>
+								<option>Vélo</option>
+								<option>Voiture et vélo</option>
+							</select>
+						</div>
+					</div>				
+				</div>
+				
+				<div class="well">
+				<h3>Informations client</h3>
+					<div class="control-group">
+						<label class="control-label" for="civilite">Civilité :</label>
+						<div class="controls">
+							<select id="civilite" class="span3">
+								<option>Monsieur</option>
+								<option>Madame</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="nom">Nom:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="nom"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="prenom">Prénom:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="prenom"/>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="dtnaissance">Date de Naissance :</label>
+						<div class="controls">
+							<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2" >
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="adresse">Adresse :</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="adresse"/>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="cp">Code postal :</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="cp"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="telephone">Téléphone:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="telephone"/>
+						</div>
+					</div>
+					
+					<div class="control-group">
+							<label class="control-label" for="email">Email:</label>
+							<div class="controls">
+								<input type="text" class="input-xxlarge" id="email"/>
+							</div>
+						</div>
+						
+					<div class="control-group">
+							<label class="control-label" for="mdp">Mot de passe:</label>
+							<div class="controls">
+								<input type="password" class="input-xxlarge" id="mdp"/>
+							</div>
+						</div>
+				</div>
+				
+				<div class="well">
+				<h3>Informations bancaires</h3>
+					<div class="control-group">
+						<label class="control-label" for="titulaire">Titulaire :</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="titulaire"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="cdBanque">Code banque:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="cdBanque"/>
+						</div>
+					</div>	
+
+					<div class="control-group">
+						<label class="control-label" for="cdAgence">Code agence:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="cdAgence"/>
+						</div>
+					</div>	
+					
+					<div class="control-group">
+						<label class="control-label" for="numCompte">Numéro de compte:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="numCompte"/>
+						</div>
+					</div>	
+					
+					<div class="control-group">
+						<label class="control-label" for="cleRib">Clé RIB:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="cleRib"/>
+						</div>
+					</div>	
+				</div>
+
+				<div class="well form-actions">
+						
+					<input class="btn btn-large btn-success" type="submit" value="Valider">
+					<input class="btn btn-large" type="button" value="Annuler" >
+					
+				</div>
+				
+			</form>
+		</div>
+		<!-- FIN FORMULAIRE NEW ABONNE -->
+	</div>
+
+</div>
+<!-- FIN CONTAINER  -->
+
+	<!-- DEBUT FOOTER -->
+	<!-- TODO: ADD THE FOOTER PARTIAL HERE -->
+	<!-- FIN FOOTER -->
+	
+
+</body>
+</html>

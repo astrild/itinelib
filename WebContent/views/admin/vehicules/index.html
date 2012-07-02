@@ -1,0 +1,140 @@
+<!-- OK -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Itinélib - Nom du point de location</title>
+
+<!-- DEBUT STYLESHEETS -->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/custom.css" rel="stylesheet">
+<!-- FIN STYLESHEETS -->
+</head>
+<body>
+
+	<!-- DEBUT ADMIN NAVBAR -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="../abonnes/index.html">
+					<img alt="" src="../../../assets/img/logo.png" id="logo">
+				</a>
+				
+				<ul class="nav">
+					<li><h2>Administration</h2></li>
+					<li><a href="../abonnes/index.html">Abonnés</a></li>
+					<li><a href="../locations/index.html">Points location</a></li>
+					<li><a href="../vehicules/index.html">Véhicules</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- FIN ADMIN NAVBAR -->
+
+	<!-- DEBUT CONTAINER  -->
+	<div class="container-fluid">
+
+	  <table class="row-fluid">
+			<td><h1>Véhicules</h1></td>
+			<td><a class="btn btn-success btn-large" style="float: right;" href="new.html">Ajouter Véhicule</a></td>
+		</table>
+
+		<div class="row-fluid">
+
+			<!-- DEBUT LISTE VEHICULE -->
+			<div class="span9">
+				<table class ="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Type véhicule</th>
+							<th>Dernière date d'utilisation</th>
+							<th>Lieu</th>
+							<th>Status</th>
+							<th colspan="2"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>90</td>
+							<td>Vélo</td>
+							<td></td>
+							<td></td>
+							<td>Fonctionnel</td>
+							<td><a href="update.html">Modifier</a></td>
+							<td><a href="">Supprimer</a></td>
+
+						</tr>
+						<tr>
+							<td>90</td>
+							<td>Vélo</td>
+							<td></td>
+							<td></td>
+							<td>Fonctionnel</td>
+							<td><a href="update.html">Modifier</a></td>
+							<td><a href="">Supprimer</a></td>
+						</tr>
+						<tr>
+							<td>90</td>
+							<td>Vélo</td>
+							<td></td>
+							<td></td>
+							<td>Fonctionnel</td>
+							<td><a href="">Modifier</a></td>
+							<td><a href="">Supprimer</a></td>
+						</tr>													
+					</tbody>
+				</table>
+			</div>
+			<!-- FIN LISTE VEHICULE -->
+
+			<!-- DEBUT SPAN3 RECHERCHE -->
+			<div class ="span3">
+				<!-- DEBUT DU FORMULAIRE DE RECHERCHE -->
+				<form id="boxRechercher" class="well form-search">
+					<h3>Recherche</h3>
+
+					<div class="control-group">
+						<label class="control-label" for="pointLocation">Point Location:</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="pointLocation">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="numVehicule">N° véhicule:</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="numVehicule">
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="typeVehicule">Type véhicule:</label>
+						<div class="controls">
+							<select id="selectTypeVehicule">
+								<option></option>
+								<option>Vélo</option>
+								<option>Voiture</option>
+							</select>
+						</div>
+					</div>
+
+					<button class="btn" type="submit">Rechercher</button>
+				</form>
+				<!-- FIN DU FORMULAIRE DE RECHERCHE -->
+			</div>
+			<!-- FIN SPAN3 RECHERCHE -->		
+		</div>
+
+	</div>
+
+</div>
+<!-- FIN CONTAINER -->
+
+<!-- Javascript -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap-dropdown.js"></script>
+
+</body>
+</html>

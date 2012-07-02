@@ -1,0 +1,236 @@
+﻿<!-- OK MANQUE JAVASCRIPT -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Itin&eacute;lib - Liste Abonn&eacute;s</title>
+
+<!-- DEBUT STYLESHEETS -->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/custom.css" rel="stylesheet">
+<link href="../../../assets/css/datepicker.css" rel="stylesheet">
+<!-- FIN STYLESHEETS -->
+
+<!-- Javascript -->
+<script src="../../../assets/js/jquery.js"></script>
+<script src="../../../assets/js/bootstrap-dropdown.js"></script>
+<script src="../../../assets/js/bootstrap-datepicker.js"></script>
+<script src="../../../assets/js/custom.js"></script>
+
+</head>
+<body>
+
+	<!-- DEBUT ADMIN NAVBAR -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="../abonnes/index.html"> <img alt=""
+					src="../../../assets/img/logo.png" id="logo"> </a>
+
+				<ul class="nav">
+					<li><h2>Administration</h2>
+					</li>
+					<li><a href="../abonnes/index.html">Abonn&eacute;s</a>
+					</li>
+					<li><a href="../locations/index.html">Points location</a>
+					</li>
+					<li><a href="../vehicules/index.html">V&eacute;hicules</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- FIN ADMIN NAVBAR -->
+
+	<!-- DEBUT CONTAINER -->
+	<div class="container-fluid">
+
+		<table class="row-fluid">
+			<td><h1>R&eacute;servation num&eacute;ro 1 :</h1>
+			</td>
+			<td><a class="btn btn-primary btn-large" style="float: right;"
+				href="./index.html">Voir abonn&eacute;</a>
+			</td>
+			<td><a class="btn btn-large" style="float: right;"
+				href="./index.html">Retour</a>
+			</td>
+		</table>
+
+		<div class="row-fluid">
+
+			<!-- DEBUT FORMULAIRE UPDATE RESERVATION -->
+			<div class="span9">
+
+				<form id="boxUpdateReservation" class="form-horizontal">
+					<div class="well" id="faireReservation">
+						<div id="1" class="box_trajet">
+							<div class="box_trajet_header">
+								<h4>Trajet 1</h4>
+							</div>
+							<div class="box_trajet_body">
+								<form class="form-horizontal">
+									<div class="box_trajet_body">
+										<div class="control-group">
+											<label class="control-label">Mode de transport: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>V&eacute;lo</option>
+													<option>Auto</option>
+												</select>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Date et heure de
+												d&eacute;part: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>Aujourd'hui, 15h45</option>
+													<option>12/06/2012, 10h10</option>
+												</select>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Station de
+												d&eacute;part: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>Malakoff</option>
+													<option>Vanves</option>
+													<option>Châtelet</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div id="btnAjouterTrajet" class="btn btn-info"
+											onclick="ajouterTrajet()">Ajouter un trajet</div>
+										<div class="btn">Annuler le trajet</div>
+									</div>
+								</form>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div id="2" class="box_trajet">
+							<div class="box_trajet_header">
+								<h4>Trajet 2</h4>
+							</div>
+							<div class="box_trajet_body">
+								<form class="form-horizontal">
+									<div class="box_trajet_body">
+										<div class="control-group">
+											<label class="control-label">Mode de transport: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>V&eacute;lo</option>
+													<option>Auto</option>
+												</select>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Date et heure de
+												d&eacute;part: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>Aujourd'hui, 15h45</option>
+													<option>12/06/2012, 10h10</option>
+												</select>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Station de
+												d&eacute;part: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>Malakoff</option>
+													<option>Vanves</option>
+													<option>Châtelet</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div id="btnAjouterTrajet" class="btn btn-info"
+											onclick="ajouterTrajet()">Ajouter un trajet</div>
+										<div class="btn">Annuler le trajet</div>
+									</div>
+								</form>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div id="lastTrajet 3" class="box_trajet">
+							<div class="box_trajet_header">
+								<h4>Trajet 3</h4>
+							</div>
+							<div class="box_trajet_body">
+								<form class="form-horizontal">
+									<div class="box_trajet_body">
+										<div class="control-group">
+											<label class="control-label">Mode de transport: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>V&eacute;lo</option>
+													<option>Auto</option>
+												</select>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Date et heure de
+												d&eacute;part: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>Aujourd'hui, 15h45</option>
+													<option>12/06/2012, 10h10</option>
+												</select>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Station de
+												d&eacute;part: </label>
+											<div class="controls">
+												<select class="input-xlarge">
+													<option>Malakoff</option>
+													<option>Vanves</option>
+													<option>Châtelet</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div id="btnAjouterTrajet" class="btn btn-info"
+											onclick="ajouterTrajet()">Ajouter un trajet</div>
+										<div class="btn">Annuler le trajet</div>
+									</div>
+								</form>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="well form-actions">
+
+						<input class="btn btn-large btn-success" type="submit"
+							value="Valider"> <input class="btn btn-large"
+							type="button" value="Annuler">
+
+					</div>
+
+				</form>
+			</div>
+			<!-- DEBUT FORMULAIRE UPDATE ABONNE -->
+
+
+			<!-- DEBUT INFORMATIONSABONNE-->
+			<!-- plus tard -->
+			<!-- FIN INFORMATIONSABONNE -->
+
+		</div>
+
+	</div>
+	<!-- FIN CONTAINER -->
+
+	<!-- DEBUT FOOTER -->
+	<!-- TODO: ADD THE FOOTER PARTIAL HERE -->
+	<!-- FIN FOOTER -->
+</body>
+</html>

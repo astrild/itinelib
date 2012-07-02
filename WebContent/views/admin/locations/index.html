@@ -1,0 +1,151 @@
+<!-- PAS TOUT A FAIT OK MANQUE JAVASCRIPT MANQUE CLOSE TAG DS JS -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Itinélib - Points de location</title>
+
+<!-- DEBUT STYLESHEETS -->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/custom.css" rel="stylesheet">
+<!-- FIN STYLESHEETS -->
+
+</head>
+<body>
+
+	<!-- DEBUT ADMIN NAVBAR -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="../abonnes/index.html">
+					<img alt="" src="../../../assets/img/logo.png" id="logo">
+				</a>
+				
+				<ul class="nav">
+					<li><h2>Administration</h2></li>
+					<li><a href="../abonnes/index.html">Abonnés</a></li>
+					<li><a href="../locations/index.html">Points location</a></li>
+					<li><a href="../vehicules/index.html">Véhicules</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- FIN ADMIN NAVBAR -->
+
+	<!-- DEBUT CONTAINER  -->
+	<div class="container-fluid">
+
+	  <table class="row-fluid">
+			<td><h1>Points location</h1></td>
+			<td><a class="btn btn-success btn-large" style="float: right;">Ajouter Point location</a></td>
+		</table>
+
+		<!-- DEBUT ROW -->
+		<div class="row-fluid">
+
+			<!-- DEBUT SPAN9 -->
+			<div class="span9">
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Adresse</th>
+							<th>Code Postal</th>
+							<th>Disponibilité Auto</th>
+							<th>Disponibilité Vélo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Malakoff - Plateau de Vanves</td>
+							<td> 3 rue danton</td>
+							<td>92240</td>
+							<td><div id="chart_div"></div></td>
+							<td><div id="chart_div1"></div></td>
+						</tr>
+						<tr>
+							<td>Javel</td>
+							<td>1 rue balard 75015</td>
+							<td>92240</td>
+							<td><div id="chart_div2"></div></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- FIN SPAN9 -->
+
+			<!-- DEBUT SPAN3 RECHERCHE -->
+			<div class ="span3">
+				<!-- DEBUT DU FORMULAIRE DE RECHERCHE -->
+				<form id="boxRechercher" class="well form-search">
+					<h3>Rechercher</h3>
+
+					<div class="control-group">
+						<label class="control-label" for="nom">Point location:</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="nom">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="nom">Code Postal:</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="nom">
+						</div>
+					</div>
+
+					<button class="btn" type="submit">Rechercher</button>
+				</form>
+				<!-- FIN DU FORMULAIRE DE RECHERCHE -->
+			</div>
+			<!-- FIN SPAN3 RECHERCHE -->		
+
+		</div>
+		<!-- FIN ROW -->
+	</div>
+	<!-- FIN CONTAINER -->
+
+	<!-- DEBUT JAVASCRIPT -->
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+	<script type='text/javascript'>
+
+	google.load('visualization', '1', {packages:['gauge']});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+			['Label', 'Value'],
+			['', 40]
+		]);
+
+			//Option du compteur
+			var options = {
+				width: 100, height: 100,
+				redFrom: 70, redTo: 100,
+				yellowFrom: 35, yellowTo: 70,
+				greenFrom: 0, greenTo: 35,
+				minorTicks: 5
+			};
+
+			//TO DO
+			/*faire un for each pur faire un ou deux compteur par point de location en fonction de donnée de la base
+			*Mettre des variable pour la valeur indiquée dans le compteur, les limite entre vert jaune et rouge et 
+			*le nombre max du compteur OU considerer qu'on regarde un pourcentage 
+			*Faire un auter for pour rajouter un nouveau compteur. L'element ID doit changer pour chaque nouveau 
+			*compeur
+			*/
+
+			var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+			chart.draw(data, options);
+			var chart1 = new google.visualization.Gauge(document.getElementById('chart_div1'));
+			chart1.draw(data, options);
+			var chart2 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+			chart2.draw(data, options);
+		}
+		</script>
+		<!-- FIN JAVASCRIPT -->
+
+	</body>
+	</html>

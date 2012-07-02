@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!-- Avec ce fichier, les classes de spring vont pouvoir exploiter
+Hibernate et pouvoir manipuler des classes persitantes d'hibernate  -->
+
+	<!--  DataSource (remplace le hibernate.cfg.xml) -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/itinelib" />
+		<property name="username" value="root" />
+		<property name="password" value="afcepf" />
+	</bean>
+	
+	<!--  Session Factory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" /> <!--  connection sur la dataSource -->
+		<!-- Liste des classes annotées qui va falloir gérer -->
+		<property name="annotatedClasses">
+			<list>
+				<value>fr.afcepf.ai83.itinelib.model.Abonne</value>
+				<value>fr.afcepf.ai83.itinelib.model.Abonnement</value>
+				<value>fr.afcepf.ai83.itinelib.model.Categoriepermis</value>
+				<value>fr.afcepf.ai83.itinelib.model.Categorievehicule</value>
+				<value>fr.afcepf.ai83.itinelib.model.Emplacement</value>
+				<value>fr.afcepf.ai83.itinelib.model.Employe</value>
+				<value>fr.afcepf.ai83.itinelib.model.Historiqueabonnement</value>
+				<value>fr.afcepf.ai83.itinelib.model.HistoriqueabonnementId</value>
+				<value>fr.afcepf.ai83.itinelib.model.Pointlocation</value>
+				<value>fr.afcepf.ai83.itinelib.model.Registre</value>
+				<value>fr.afcepf.ai83.itinelib.model.Resaglobale</value>
+				<value>fr.afcepf.ai83.itinelib.model.Typeabonnement</value>
+				<value>fr.afcepf.ai83.itinelib.model.Utilisateur</value>
+				<value>fr.afcepf.ai83.itinelib.model.Vehicule</value>
+				<value>fr.afcepf.ai83.itinelib.model.Ville</value>
+			</list>
+		</property>
+		
+		<!-- dialect -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Gestion des Transactions -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />	
+	</bean>
+	
+	<!-- Detail transactionnel géré par annotations  -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<context:annotation-config />
+	<context:component-scan base-package="fr.afcepf.ai83.itinelib" />
+</beans>

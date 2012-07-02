@@ -1,0 +1,181 @@
+﻿<!-- OK MANQUE JAVASCRIPT -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Itin&eacute;lib - Liste Abonn&eacute;s</title>
+
+<!-- DEBUT STYLESHEETS -->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/custom.css" rel="stylesheet">
+<link href="../../../assets/css/datepicker.css" rel="stylesheet">
+<!-- FIN STYLESHEETS -->
+
+<!-- DEBUT JAVASCRIPT -->
+<script src="../../../assets/js/jquery.js"></script>
+<script src="../../../assets/js/bootstrap-dropdown.js"></script>
+<script src="../../../assets/js/bootstrap-datepicker.js"></script>
+<script src="../../../assets/js/custom.js"></script>
+<!-- FIN JAVASCRIPT -->
+
+</head>
+<body>
+
+	<!-- DEBUT ADMIN NAVBAR -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="../abonnes/index.html"> <img alt=""
+					src="../../../assets/img/logo.png" id="logo"> </a>
+
+				<ul class="nav">
+					<li><h2>Administration</h2>
+					</li>
+					<li><a href="../abonnes/index.html">Abonn&eacute;s</a>
+					</li>
+					<li><a href="../locations/index.html">Points location</a>
+					</li>
+					<li><a href="../vehicules/index.html">V&eacute;hicules</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- FIN ADMIN NAVBAR -->
+
+	<!-- DEBUT CONTAINER -->
+	<div class="container-fluid">
+
+		<table class="row-fluid">
+			<td><h1>R&eacute;servations</h1>
+			</td>
+			<td><a class="btn btn-success btn-large" style="float: right;"
+				href="./new.html">Cr&eacute;er r&eacute;servation</a>
+			</td>
+		</table>
+
+		<div class="row-fluid">
+
+			<!-- DEBUT LISTE UTILISATEUR -->
+			<div id="listeUtilisateur" class="span9">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Station de d&eacute;part</th>
+							<th># Abonn&eacute;</th>
+							<th>Nom abonn&eacute;</th>
+							<th>Pr&eacute;nom abonn&eacute;</th>
+							<th>Date</th>
+							<th>Heure de d&eacute;part</th>
+							<th colspan=3></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Tour Eiffel</td>
+							<td><a href="#">1</a>
+							</td>
+							<td><a href="#">Mouse</a>
+							</td>
+							<td><a href="#">Nikky</a>
+							</td>
+							<td>05/07/2012</td>
+							<td>13:37</td>
+							<td><a href="show.html">Voir</a>
+							</td>
+							<td><a href="update.html">Modifier</a>
+							</td>
+							<td><a href="">Supprimer</a>
+							</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Les Halles</td>
+							<td><a href="#">2</a>
+							</td>
+							<td><a href="#">Duck</a>
+							</td>
+							<td><a href="#">Dolan</a>
+							</td>
+							<td>05/07/2012</td>
+							<td>15:43</td>
+							<td><a href="show.html">Voir</a>
+							</td>
+							<td><a href="update.html">Modifier</a>
+							</td>
+							<td><a href="">Supprimer</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- FIN LISTE UTILISATEUR -->
+
+
+			<!-- DEBUT SPAN3 RECHERCHE -->
+			<div class="span3">
+				<!-- DEBUT DU FORMULAIRE DE RECHERCHE -->
+				<form id="boxRechercher" class="well form-search">
+					<h3>Rechercher</h3>
+
+					<div class="control-group">
+						<label class="control-label" for="numReservation">N°
+							r&eacute;servation :</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="numReservation">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="numAbonne">N°
+							abonn&eacute; :</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="numAbonne">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="nomAbonne">Nom
+							abonn&eacute; :</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="nomAbonne">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="prenomAbonne">Pr&eacute;nom
+							abonn&eacute; :</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="prenomAbonne">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="stationDepart">Station
+							de d&eacute;part :</label>
+						<div class="controls">
+							<input type="text" class="input-large" id="stationDepart">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="dp2">Date :</label>
+						<div class="controls">
+							<input id="dp2" class="span10" type="text"
+								data-date-format="mm/dd/yy" value="">
+						</div>
+					</div>
+
+					<button class="btn" type="submit">Rechercher</button>
+				</form>
+				<!-- FIN DU FORMULAIRE DE RECHERCHE -->
+			</div>
+			<!-- FIN SPAN3 RECHERCHE -->
+		</div>
+
+	</div>
+	<!-- FIN CONTAINER -->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!-- OK -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Itinélib - Ajouter véhicule</title>
+
+<!-- DEBUT STYLESHEETS -->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/custom.css" rel="stylesheet">
+<!-- FIN STYLESHEETS -->
+</head>
+<body>
+
+	<!-- DEBUT ADMIN NAVBAR -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="../abonnes/index.html">
+					<img alt="" src="../../../assets/img/logo.png" id="logo">
+				</a>
+				
+				<ul class="nav">
+					<li><h2>Administration</h2></li>
+					<li><a href="../abonnes/index.html">Abonnés</a></li>
+					<li><a href="../locations/index.html">Points location</a></li>
+					<li><a href="../vehicules/index.html">Véhicules</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- FIN ADMIN NAVBAR -->
+
+	<div class="container-fluid">
+
+  <table class="row-fluid">
+		<td><h1>Nouveau véhicule</h1></td>
+		<td><a class="btn btn-primary btn-large" style="float: right;" href="./index.html">Retour</a></td>
+	</table>
+		
+	<div class="row-fluid">
+
+		<!-- DEBUT FORMULAIRE NEW VEHICULE -->
+		<div class="span9">
+		
+			<form id="boxRechercher" class="form-horizontal">
+
+				<div class="well">
+					<div class="control-group">
+						<label class="control-label" for="typeVehicule">Type de véhicule:</label>
+						<div class="controls">
+							<select id="typeVehicule" class="span4">
+								<option>Voiture</option>
+								<option>Vélo</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="lieu">Lieu:</label>
+						<div class="controls">
+							<input type="text" class="input-xxlarge" id="lieu"/>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="well form-actions">
+						
+					<input class="btn btn-large btn-success" type="submit" value="Valider">
+					<input class="btn btn-large" type="button" value="Annuler" >
+					
+				</div>
+				
+			</form>
+		</div>
+		<!-- FIN FORMULAIRE NEW VEHICULE-->
+	</div>
+
+</div>
+<!-- FIN CONTAINER  -->
+
+	<!-- DEBUT FOOTER -->
+	<!-- TODO: ADD THE FOOTER PARTIAL HERE -->
+	<!-- FIN FOOTER -->
+	
+
+
+
+</body>
+</html>

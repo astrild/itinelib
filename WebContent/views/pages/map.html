@@ -1,0 +1,73 @@
+<!-- OK 20120621 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Itinélib - Trouver un point de location</title>
+
+  <!-- DEBUT STYLESHEETS -->
+  <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/custom.css" rel="stylesheet">
+  <!-- FIN STYLESHEETS -->
+  <!-- DEBUT JAVASCRIPT -->
+  <script src="../../assets/js/jquery.js"></script>
+  <script src="../../assets/js/bootstrap-dropdown.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB2rvSTfnPexVz8Q1zJHTSgdUKuQ7bZs4w&sensor=true&size=860x380"></script>
+  <script src="../../assets/js/map.js"></script>
+  <!-- FIN JAVASCRIPT -->
+</head>
+<body onload="initialize()">
+
+  <!-- DEBUT NAVBAR -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="home.html">
+          <img alt="" src="../../assets/img/logo.png" id="logo">
+        </a>
+
+        <div class="pull-right">
+          <ul class="nav">
+            <li><a href="../auth/login.html">Se connecter</a></li>
+            <li>
+              <form method="link" action="../auth/subscribe.html">
+                <button class="btn btn-warning" onclick="">S'abonner</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="nav">
+          <li><a href="howitworks.html">Comment ça marche</a></li>
+          <li><a href="offers.html">Offres &amp; Tarifs</a></li>
+          <li><a href="map.html">Trouver une station</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Assistance <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="contact.html">Nous contacter</a></li>
+              <li><a href="faq.html">Voir toutes les FAQ</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- FIN NAVBAR -->
+
+  <!-- DEBUT PAGE-CANVAS  -->
+  <div class="page-canvas">
+    <!-- DEBUT CONTAINER  -->
+    <div class="container">
+
+      <h1>Trouver une station</h1>
+
+      <div id="map_canvas" style="width:860px; height:380px; margin: auto"></div>
+    </div>
+    <!-- FIN CONTAINER  -->
+  </div>
+  <!-- FIN PAGE-CANVAS  -->
+</body>
+</html>
