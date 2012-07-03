@@ -81,5 +81,17 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
 		
 	}
 
+	@Override
+	public Utilisateur find(String email, String password) {
+		System.out.println("debut");
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM Utilisateur WHERE email = :email and motdepassHash = :password");
+		System.out.println(query);
+		query.setString("email", email);
+		query.setString("password",  password);
+		Utilisateur utilisateur = (Utilisateur) query.uniqueResult();
+		System.out.println(utilisateur.getEmail());
+		return utilisateur;		
+	}
+
 
 }

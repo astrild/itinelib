@@ -73,6 +73,20 @@
 		</navigation-case>
 	</navigation-rule>
 
+	<navigation-rule>
+		<from-view-id>/AuthLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>adminHome</from-outcome>
+			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>userHome</from-outcome>
+			<to-view-id>/ProfileMyAccount.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
 	<!-- specification de l'intégration de spring -->
 	<application>
 		<!-- le resolver qui va permettre a jsf d'exploiter des beans déclaré dans 

@@ -14,4 +14,5 @@ public interface IUtilisateurService {
 	List<Utilisateur> findByEmail(String email);
 	void saveAbonne(Utilisateur utilisateur, Integer id, String password);
 	void update (Utilisateur utilisateur,String password);
+	Utilisateur find(String email, String password);
 }
