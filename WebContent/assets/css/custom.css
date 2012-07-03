@@ -59,7 +59,7 @@ body {
     margin-right: 0px;
 }
 
-/* Utilis� lorsque l'utilisateur est loggu� */
+/* Utilise lorsque l'utilisateur est loggue*/
 #connecte {
   display: block;
   margin-top: 9px;
@@ -236,4 +236,11 @@ body {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+/* texte couleur
+*********************************************************************** */
+
+.error {
+ color: #FF0000;
 }
