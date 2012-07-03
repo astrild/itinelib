@@ -33,14 +33,10 @@
 					src="../assets/img/logo.png" id="logo"> </a>
 
 				<ul class="nav">
-					<li><h2>Administration</h2>
-					</li>
-					<li><a href="../abonnes/index.html">Abonnés</a>
-					</li>
-					<li><a href="../locations/index.html">Points location</a>
-					</li>
-					<li><a href="../vehicules/index.html">Véhicules</a>
-					</li>
+					<li><h2>Administration</h2></li>
+					<li><a href="../abonnes/index.html">Abonnés</a></li>
+					<li><a href="../locations/index.html">Points location</a></li>
+					<li><a href="../vehicules/index.html">Véhicules</a></li>
 				</ul>
 			</div>
 		</div>
@@ -52,13 +48,13 @@
 		<f:view>
 			<table class="row-fluid">
 				<tr>
-					<td><h1>Nouveau client</h1>
-					</td>
+					<td><h1>Nouveau client</h1></td>
 					<td><a4j:form>
 							<a4j:commandButton value="Retour"
 								action="#{adminAbonnesFormBean.retour }"
 								styleClass="btn btn-primary btn-large right" />
-						</a4j:form></td>
+						</a4j:form>
+					</td>
 				</tr>
 			</table>
 
@@ -101,6 +97,9 @@
 									<h:inputText id="nom"
 										value="#{adminAbonnesFormBean.currentAbonne.nomabonne}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testnom"
+										value="#{adminAbonnesFormBean.erreurNomAbonne}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -110,6 +109,9 @@
 									<h:inputText id="prenom"
 										value="#{adminAbonnesFormBean.currentAbonne.prenomabonne}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testprenom"
+										value="#{adminAbonnesFormBean.erreurPrenomAbonne}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -131,6 +133,9 @@
 									<h:inputText id="adresse"
 										value="#{adminAbonnesFormBean.currentAbonne.adresse}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testAdresse"
+										value="#{adminAbonnesFormBean.erreurAdresse}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -141,6 +146,9 @@
 									<h:inputText id="codepostal"
 										value="#{adminAbonnesFormBean.codepostal}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testcodePostal"
+										value="#{adminAbonnesFormBean.erreurCodePostal}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -150,6 +158,9 @@
 									<h:inputText id="telephone"
 										value="#{adminAbonnesFormBean.currentAbonne.tel}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testTelephone"
+										value="#{adminAbonnesFormBean.erreurTelephone}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -159,6 +170,9 @@
 									<h:inputText id="email"
 										value="#{adminAbonnesFormBean.currentUtilisateur.email}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testEmail"
+										value="#{adminAbonnesFormBean.erreurMail}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -169,6 +183,9 @@
 									<h:inputText id="password"
 										value="#{adminAbonnesFormBean.password}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testPassword"
+										value="#{adminAbonnesFormBean.erreurPassword}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 						</div>
@@ -182,6 +199,9 @@
 									<h:inputText id="titulairecompte"
 										value="#{adminAbonnesFormBean.currentAbonne.titulairecompte}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testTitulaire"
+										value="#{adminAbonnesFormBean.erreurTitulaireCompte}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -192,6 +212,9 @@
 									<h:inputText id="codebanque"
 										value="#{adminAbonnesFormBean.currentAbonne.codebanque}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testCodeBanque"
+										value="#{adminAbonnesFormBean.erreurCodeBanque}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -202,6 +225,9 @@
 									<h:inputText id="codeagence"
 										value="#{adminAbonnesFormBean.currentAbonne.codeagence}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testCodeAgence"
+										value="#{adminAbonnesFormBean.erreurCodeAgence}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -212,6 +238,9 @@
 									<h:inputText id="numerocompte"
 										value="#{adminAbonnesFormBean.currentAbonne.numerocompte}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testNumCompte"
+										value="#{adminAbonnesFormBean.erreirNumeroCompte}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 
@@ -221,23 +250,26 @@
 									<h:inputText id="clefrib"
 										value="#{adminAbonnesFormBean.currentAbonne.clefrib}"
 										styleClass="input-xxlarge" />
+									<h:outputLabel id="testCleRib"
+										value="#{adminAbonnesFormBean.erreurCleRib}"
+										styleClass="error input-xxlarge" />
 								</div>
 							</div>
 						</div>
 
 						<div class="well form-actions">
 							<h:commandButton value="Valider"
-								action="#{adminAbonnesFormBean.update }"
+								action="#{adminAbonnesFormBean.save }"
 								styleClass="btn btn-large btn-success" />
 							<input class="btn btn-large" type="button" value="Annuler">
 
 						</div>
 
 					</h:form>
-		
-				<!-- FIN FORMULAIRE NEW ABONNE -->
+
+					<!-- FIN FORMULAIRE NEW ABONNE -->
 				</div>
-			
+
 			</div>
 
 		</f:view>

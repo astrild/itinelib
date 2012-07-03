@@ -41,6 +41,11 @@
 			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>erreurDonne</from-outcome>
+			<to-view-id>/AdminAbonnesForm.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
 	</navigation-rule>
 
 	<!-- Navigation rule AdminAbonneShow -->
@@ -59,6 +64,11 @@
 		<navigation-case>
 			<from-outcome>index</from-outcome>
 			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>erreurDonne</from-outcome>
+			<to-view-id>/AdminAbonnesUpdate.jsp</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

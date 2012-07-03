@@ -37,7 +37,20 @@ public class AdminAbonnesFormBean implements Serializable {
 	private String codepostal;
 	private String password;
 	
-
+	//Attribut message d'erreur
+	private String erreurNomAbonne;
+	private String erreurPrenomAbonne;
+	private String erreurAdresse;
+	private String erreurCodePostal;
+	private String erreurTelephone;
+	private String erreurMail;
+	private String erreurTitulaireCompte;
+	private String erreurCodeBanque;
+	private String erreurCodeAgence;
+	private String erreirNumeroCompte;
+	private String erreurCleRib;
+	private String erreurPassword;
+	
 
 	@Autowired
 	private transient IAbonneService iabonneservice;
@@ -66,7 +79,73 @@ public class AdminAbonnesFormBean implements Serializable {
 	}
 	
 	
-	public String update() {
+	public String save() {
+		
+		Boolean validation = true;
+		/*String expression reguliere pour validation*/
+
+		String regexNomAbonne = "^[a-zA-Z]{2,50}$";
+		String regexPrenomAbonne = "^[a-zA-Z]{2,50}$";
+		String regexDtNaissanceAbonne = "^[1-9]{2}+/s+[a-zA-Z_0-9]{1,5}+/s[1-9]{4}+/s";
+		String regexAdresseAbonne = "^[a-zA-Z0-9 . - _ , ; ]{2,200}$";
+		String regexCodePostal = "^[0-9]{5}$";
+		String regexTelephoneAbonne = "^[0-9 -]{10,50}$";
+		String regexTitulaireCompte = "^[a-zA-Z ]{2,50}$";
+		String regexMailAbonne = "^[A-Za-z0-9 . - _]+@[a-z0-9 . - _]{2,}[a-z]{2,4}$";
+		String regexPasswordAbonne = "^[a-zA-Z&0-9]{2,100}$";
+		String regexCodeBanque = "^[0-9]{2,30}$";
+		String regexCodeAgence = "^[0-9]{2,30}$";
+		String regexNumeroCompte = "^[0-9]{2,30}$";
+		String regexCleRib= "^[0-9]{2,30}$";
+
+		/*String chaine de donnée à tester*/
+		String testNomAbonne=currentAbonne.getNomabonne();
+		String testPrenomAbonne=currentAbonne.getPrenomabonne();
+		String testDatenaissance = currentAbonne.getDatenaissance().toLocaleString();
+		String testAdresse = currentAbonne.getAdresse();
+		String testCodePostale = codepostal;
+		String testTelephone = currentAbonne.getTel();
+		String testMail = currentUtilisateur.getEmail();
+		String testTitulaireCompte = currentAbonne.getTitulairecompte();
+		String testCodeBanque = currentAbonne.getCodebanque();
+		String testCodeAgence = currentAbonne.getCodeagence();
+		String testNumeroCompte = currentAbonne.getNumerocompte();
+		String testCleRib = currentAbonne.getClefrib();
+		String testPassword = password;
+
+		System.out.println(testDatenaissance);
+		System.out.println("test Nom "+testNomAbonne.matches(regexNomAbonne));
+		System.out.println("test Prenom "+testPrenomAbonne.matches(regexPrenomAbonne));
+		System.out.println("test DTnaissance "+testDatenaissance.matches(regexDtNaissanceAbonne));
+		System.out.println("test Adresse "+testAdresse.matches(regexAdresseAbonne));
+		System.out.println("test codepostal "+testCodePostale.matches(regexCodePostal));
+		System.out.println("test Telephone "+testTelephone.matches(regexTelephoneAbonne));
+		System.out.println("test Email "+testMail.matches(regexMailAbonne));
+		System.out.println("test titulaire "+testTitulaireCompte.matches(regexTitulaireCompte));
+		System.out.println("test CBanque "+testCodeBanque.matches(regexCodeBanque));
+		System.out.println("test CAgence "+testCodeAgence.matches(regexCodeAgence));
+		System.out.println("test numCompte" + testNumeroCompte.matches(regexNumeroCompte));
+		System.out.println("test clerib "+testCleRib.matches(regexCleRib));
+		System.out.println("test pass "+testPassword.matches(regexPasswordAbonne));
+
+		System.out.println("validation1 " + validation);
+		
+		if (testNomAbonne.matches(regexNomAbonne)== false || testPrenomAbonne.matches(regexPrenomAbonne)==false
+				||testAdresse.matches(regexAdresseAbonne)==false || testCodePostale.matches(regexCodePostal)== false
+				||testTelephone.matches(regexTelephoneAbonne)==false || testMail.matches(regexMailAbonne)==false
+				||testTitulaireCompte.matches(regexTitulaireCompte)==false || testCodeBanque.matches(regexCodeBanque)==false
+				||testCodeAgence.matches(regexCodeAgence)==false || testNumeroCompte.matches(regexNumeroCompte)==false 
+				||testCleRib.matches(regexCleRib)==false || testPassword.matches(regexPasswordAbonne)==false)
+		{
+			validation = false;
+			System.out.println("validation2 " + validation);
+		}
+		else
+		{
+			validation = true;
+			System.out.println("validation3 " + validation);
+		}
+		if(validation==true){
 		iabonneservice.save(currentAbonne, codepostal);
 		iUtilisateurService.saveAbonne(currentUtilisateur, currentAbonne.getIdabonne(), password);
 		iAbonnementService.save(currentAbonnement, currentAbonne, idabonnement);
@@ -79,6 +158,49 @@ public class AdminAbonnesFormBean implements Serializable {
 			e.printStackTrace();
 		}
 		return "index";
+		}
+		else  {
+
+			if(testNomAbonne.matches(regexNomAbonne)== false){
+				erreurNomAbonne = "il y a une erreur dans le nom";
+			}
+			if(testPrenomAbonne.matches(regexPrenomAbonne)==false){
+				erreurPrenomAbonne="il y a une erreur dans le prenom";
+			}
+			if(testAdresse.matches(regexAdresseAbonne)==false ){
+				erreurAdresse="il y a une erreur dans l'adresse";
+			}
+			if(testCodePostale.matches(regexCodePostal)==false ){
+				erreurCodePostal="il y a une erreur dans le code postal";
+			}
+			if(testTelephone.matches(regexTelephoneAbonne)==false ){
+				erreurTelephone="il y a une erreur dans le numéro de telephone";
+			}
+			if(testMail.matches(regexMailAbonne)==false ){
+				erreurMail="il y a une erreur dans l'adresse mail";
+			}
+			if(testTitulaireCompte.matches(regexTitulaireCompte)==false ){
+				erreurTitulaireCompte="il y a une erreur dans le nom du titulaire du compte";
+			}
+			if(testCodeBanque.matches(regexCodeBanque)==false){
+				erreurCodeBanque="il y a une erreur dans le code banque";
+			}
+			if(testCodeAgence.matches(regexCodeAgence)==false){
+				erreurCodeAgence="il y a une erreur dans le code Agence";
+			}
+			if(testNumeroCompte.matches(regexNumeroCompte)==false ){
+				erreirNumeroCompte="il y a une erreur dans le numero de compte";
+			}
+			if(testCleRib.matches(regexCleRib)==false){
+				erreurCleRib="il y a une erreur dans la cle RIB";
+			}
+			if(testPassword.matches(regexPasswordAbonne)==false){
+				erreurPassword="il y a une erreur dans le mot de passe n'utiliser que des caracteres alphanumériques";
+			}
+			System.out.println("validation6 " + validation);
+			return "erreurDonne";
+		}
+
 	}
 
 	
@@ -116,6 +238,126 @@ public class AdminAbonnesFormBean implements Serializable {
 		ITypeAbonnementService iTypeAbonnementService) {
 		this.iTypeAbonnementService = iTypeAbonnementService;
 	}
+	public String getErreurNomAbonne() {
+		return erreurNomAbonne;
+	}
+
+	public void setErreurNomAbonne(String erreurNomAbonne) {
+		this.erreurNomAbonne = erreurNomAbonne;
+	}
+
+	public String getErreurPrenomAbonne() {
+		return erreurPrenomAbonne;
+	}
+
+	public void setErreurPrenomAbonne(String erreurPrenomAbonne) {
+		this.erreurPrenomAbonne = erreurPrenomAbonne;
+	}
+
+	public String getErreurAdresse() {
+		return erreurAdresse;
+	}
+
+	public void setErreurAdresse(String erreurAdresse) {
+		this.erreurAdresse = erreurAdresse;
+	}
+
+	public String getErreurCodePostal() {
+		return erreurCodePostal;
+	}
+
+	public void setErreurCodePostal(String erreurCodePostal) {
+		this.erreurCodePostal = erreurCodePostal;
+	}
+
+	public String getErreurTelephone() {
+		return erreurTelephone;
+	}
+
+	public void setErreurTelephone(String erreurTelephone) {
+		this.erreurTelephone = erreurTelephone;
+	}
+
+	public String getErreurMail() {
+		return erreurMail;
+	}
+
+	public void setErreurMail(String erreurMail) {
+		this.erreurMail = erreurMail;
+	}
+
+	public String getErreurTitulaireCompte() {
+		return erreurTitulaireCompte;
+	}
+
+	public void setErreurTitulaireCompte(String erreurTitulaireCompte) {
+		this.erreurTitulaireCompte = erreurTitulaireCompte;
+	}
+
+	public String getErreurCodeBanque() {
+		return erreurCodeBanque;
+	}
+
+	public void setErreurCodeBanque(String erreurCodeBanque) {
+		this.erreurCodeBanque = erreurCodeBanque;
+	}
+
+	public String getErreurCodeAgence() {
+		return erreurCodeAgence;
+	}
+
+	public void setErreurCodeAgence(String erreurCodeAgence) {
+		this.erreurCodeAgence = erreurCodeAgence;
+	}
+
+	public String getErreirNumeroCompte() {
+		return erreirNumeroCompte;
+	}
+
+	public void setErreirNumeroCompte(String erreirNumeroCompte) {
+		this.erreirNumeroCompte = erreirNumeroCompte;
+	}
+
+	public String getErreurCleRib() {
+		return erreurCleRib;
+	}
+
+	public void setErreurCleRib(String erreurCleRib) {
+		this.erreurCleRib = erreurCleRib;
+	}
+
+	public String getErreurPassword() {
+		return erreurPassword;
+	}
+
+	public void setErreurPassword(String erreurPassword) {
+		this.erreurPassword = erreurPassword;
+	}
+
+	public IVilleService getiVilleService() {
+		return iVilleService;
+	}
+
+	public void setiVilleService(IVilleService iVilleService) {
+		this.iVilleService = iVilleService;
+	}
+
+	public IUtilisateurService getiUtilisateurService() {
+		return iUtilisateurService;
+	}
+
+	public void setiUtilisateurService(IUtilisateurService iUtilisateurService) {
+		this.iUtilisateurService = iUtilisateurService;
+	}
+
+	public IAbonnementService getiAbonnementService() {
+		return iAbonnementService;
+	}
+
+	public void setiAbonnementService(IAbonnementService iAbonnementService) {
+		this.iAbonnementService = iAbonnementService;
+	}
+
 
 	public Typeabonnement getTypeAbo() {
 		return typeAbo;

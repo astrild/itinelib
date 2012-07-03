@@ -13,9 +13,9 @@
    <PROCESS-ITEM-OUTPUT ID="modifier::#AdminAbonnesUpdate.jsp"
     NAME="output2" PATH="/AdminAbonnesUpdate.jsp"
     TARGET="rules:#AdminAbonnesUpdate.jsp" TITLE="modifier" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="resilier::#AdminAbonnesIndex.jsp"
-    NAME="output3" PATH="/AdminAbonnesIndex.jsp"
-    TARGET="rules:#AdminAbonnesIndex.jsp" TITLE="resilier" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="new::#AdminAbonnesForm.jsp" NAME="output3"
+    PATH="/AdminAbonnesForm.jsp" TARGET="rules:#AdminAbonnesForm.jsp"
+    TITLE="new" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AdminAbonnesShow.jsp"
@@ -34,6 +34,9 @@
    <PROCESS-ITEM-OUTPUT ID="index::#AdminAbonnesIndex.jsp" NAME="output"
     PATH="/AdminAbonnesIndex.jsp" TARGET="rules:#AdminAbonnesIndex.jsp"
     TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="erreurDonne::#AdminAbonnesForm.jsp"
+    NAME="output1" PATH="/AdminAbonnesForm.jsp"
+    TARGET="rules:#AdminAbonnesForm.jsp" TITLE="erreurDonne" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AdminAbonnesUpdate.jsp"
@@ -43,6 +46,9 @@
    <PROCESS-ITEM-OUTPUT ID="index::#AdminAbonnesIndex.jsp" NAME="output"
     PATH="/AdminAbonnesIndex.jsp" TARGET="rules:#AdminAbonnesIndex.jsp"
     TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="erreurDonne::#AdminAbonnesUpdate.jsp"
+    NAME="output1" PATH="/AdminAbonnesUpdate.jsp"
+    TARGET="rules:#AdminAbonnesUpdate.jsp" TITLE="erreurDonne" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>
