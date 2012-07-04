@@ -40,7 +40,11 @@
 										value="#{userProfilMyAccountBean.currentAbonneView.prenomabonne} " />
 
 							</span></li>
-							<li><a href="">Deconnexion</a></li>
+							<li>
+							<h:form style="margin-top: 9px;" >
+							<h:commandLink value="Deconnexion" action="#{authBean.logout}" />
+							</h:form>
+							</li>
 						</ul>
 					</div>
 

@@ -16,9 +16,16 @@
 <link href="../assets/css/custom.css" rel="stylesheet">
 <link href="../assets/css/datepicker.css" rel="stylesheet">
 <!-- FIN STYLESHEETS -->
+
 </head>
 <body>
+
 <f:view>
+<h:panelGroup rendered="#{!authBean.admin}">
+			<script type="text/javascript">
+			window.location.href = "/itinelib/faces/AuthLogin.jsp";
+			</script>
+</h:panelGroup>
 	<!-- DEBUT ADMIN NAVBAR -->
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
@@ -26,6 +33,15 @@
 				<a href="../abonnes/index.html">
 					<img alt="" src="../assets/img/logo.png" id="logo">
 				</a>
+				
+				<ul class="nav" style="float: right; margin-top: 8px;">
+					<li><h:outputText value="#{authBean.current.email }" /></li>
+					<li>
+							<h:form >
+							<h:commandLink value="Deconnexion" action="#{authBean.logout}" />
+							</h:form>
+					</li>
+				</ul>
 				
 				<ul class="nav">
 					<li><h2>Administration</h2></li>

@@ -19,6 +19,8 @@
    <PROCESS-ITEM-OUTPUT ID="resilier::#AdminAbonnesIndex.jsp"
     NAME="output4" PATH="/AdminAbonnesIndex.jsp"
     TARGET="rules:#AdminAbonnesIndex.jsp" TITLE="resilier" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#AuthLogin.jsp" NAME="output5"
+    PATH="/AuthLogin.jsp" TARGET="rules:#AuthLogin.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AdminAbonnesShow.jsp"
@@ -28,6 +30,8 @@
    <PROCESS-ITEM-OUTPUT ID="index::#AdminAbonnesIndex.jsp" NAME="output"
     PATH="/AdminAbonnesIndex.jsp" TARGET="rules:#AdminAbonnesIndex.jsp"
     TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#AuthLogin.jsp" NAME="output1"
+    PATH="/AuthLogin.jsp" TARGET="rules:#AuthLogin.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AdminAbonnesForm.jsp"
@@ -40,6 +44,8 @@
    <PROCESS-ITEM-OUTPUT ID="erreurDonne::#AdminAbonnesForm.jsp"
     NAME="output1" PATH="/AdminAbonnesForm.jsp"
     TARGET="rules:#AdminAbonnesForm.jsp" TITLE="erreurDonne" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#AuthLogin.jsp" NAME="output2"
+    PATH="/AuthLogin.jsp" TARGET="rules:#AuthLogin.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AdminAbonnesUpdate.jsp"
@@ -52,6 +58,8 @@
    <PROCESS-ITEM-OUTPUT ID="erreurDonne::#AdminAbonnesUpdate.jsp"
     NAME="output1" PATH="/AdminAbonnesUpdate.jsp"
     TARGET="rules:#AdminAbonnesUpdate.jsp" TITLE="erreurDonne" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#AuthLogin.jsp" NAME="output2"
+    PATH="/AuthLogin.jsp" TARGET="rules:#AuthLogin.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AuthLogin.jsp" PATH="/AuthLogin.jsp"
@@ -67,5 +75,13 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ProfileMyAccount.jsp"
-  PATH="/ProfileMyAccount.jsp" SHAPE="368,561,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/ProfileMyAccount.jsp" SHAPE="368,561,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ProfileMyAccount.jsp:0" NAME="item"
+   PATH="/ProfileMyAccount.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#Home.jsp" NAME="output"
+    PATH="/Home.jsp" TARGET="rules:#Home.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#Home.jsp" PATH="/Home.jsp"
+  SHAPE="608,865,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

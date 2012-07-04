@@ -24,6 +24,12 @@
 
 </head>
 <body>
+<f:view>
+<h:panelGroup rendered="#{!authBean.admin}">
+			<script type="text/javascript">
+			window.location.href = "/itinelib/faces/AuthLogin.jsp";
+			</script>
+</h:panelGroup>
 
 	<!-- DEBUT ADMIN NAVBAR -->
 	<div class="navbar navbar-fixed-top">
@@ -31,6 +37,15 @@
 			<div class="container-fluid">
 				<a href="../abonnes/index.html"> <img alt=""
 					src="../assets/img/logo.png" id="logo"> </a>
+
+				<ul class="nav" style="float: right; margin-top: 8px;">
+					<li><h:outputText value="#{authBean.current.email }" /></li>
+					<li>
+							<h:form >
+							<h:commandLink value="Deconnexion" action="#{authBean.logout}" />
+							</h:form>
+					</li>
+				</ul>
 
 				<ul class="nav">
 					<li><h2>Administration</h2></li>
@@ -45,7 +60,7 @@
 
 	<!-- DEBUT CONTAINER  -->
 	<div class="container-fluid">
-		<f:view>
+
 			<table class="row-fluid">
 				<tr>
 					<td><h1>Nouveau client</h1></td>
@@ -272,7 +287,7 @@
 
 			</div>
 
-		</f:view>
+		
 	</div>
 	<!-- FIN CONTAINER  -->
 
@@ -280,6 +295,6 @@
 	<!-- TODO: ADD THE FOOTER PARTIAL HERE -->
 	<!-- FIN FOOTER -->
 
-
+</f:view>
 </body>
 </html>

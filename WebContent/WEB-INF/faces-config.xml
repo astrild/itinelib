@@ -1,96 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
-
-	<!-- Navigation rule AdminAbonneIndex -->
-	<navigation-rule>
-		<from-view-id>/AdminAbonnesIndex.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>detail</from-outcome>
-			<to-view-id>/AdminAbonnesShow.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>recherche</from-outcome>
-			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>modifier</from-outcome>
-			<to-view-id>/AdminAbonnesUpdate.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>new</from-outcome>
-			<to-view-id>/AdminAbonnesForm.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>resilier</from-outcome>
-			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<!-- Navigation rule AdminAbonneForm -->
-	<navigation-rule>
-		<from-view-id>/AdminAbonnesForm.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>index</from-outcome>
-			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>erreurDonne</from-outcome>
-			<to-view-id>/AdminAbonnesForm.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<!-- Navigation rule AdminAbonneShow -->
-	<navigation-rule>
-		<from-view-id>/AdminAbonnesShow.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>index</from-outcome>
-			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	
-	<!-- Navigation rule AdminAbonneUpdate -->
-	<navigation-rule>
-		<from-view-id>/AdminAbonnesUpdate.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>index</from-outcome>
-			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>erreurDonne</from-outcome>
-			<to-view-id>/AdminAbonnesUpdate.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/AuthLogin.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>adminHome</from-outcome>
-			<to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>userHome</from-outcome>
-			<to-view-id>/ProfileMyAccount.jsp</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<!-- specification de l'intégration de spring -->
-	<application>
-		<!-- le resolver qui va permettre a jsf d'exploiter des beans déclaré dans 
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+ <navigation-rule>
+  <from-view-id>/ProfileMyAccount.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/Home.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- Navigation rule AdminAbonneIndex -->
+ <navigation-rule>
+  <from-view-id>/AdminAbonnesIndex.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>detail</from-outcome>
+   <to-view-id>/AdminAbonnesShow.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>recherche</from-outcome>
+   <to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>modifier</from-outcome>
+   <to-view-id>/AdminAbonnesUpdate.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>new</from-outcome>
+   <to-view-id>/AdminAbonnesForm.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>resilier</from-outcome>
+   <to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/AuthLogin.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- Navigation rule AdminAbonneForm -->
+ <navigation-rule>
+  <from-view-id>/AdminAbonnesForm.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>erreurDonne</from-outcome>
+   <to-view-id>/AdminAbonnesForm.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/AuthLogin.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- Navigation rule AdminAbonneShow -->
+ <navigation-rule>
+  <from-view-id>/AdminAbonnesShow.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/AuthLogin.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- Navigation rule AdminAbonneUpdate -->
+ <navigation-rule>
+  <from-view-id>/AdminAbonnesUpdate.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>erreurDonne</from-outcome>
+   <to-view-id>/AdminAbonnesUpdate.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/AuthLogin.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/AuthLogin.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>adminHome</from-outcome>
+   <to-view-id>/AdminAbonnesIndex.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>userHome</from-outcome>
+   <to-view-id>/ProfileMyAccount.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- specification de l'intégration de spring -->
+ <application>
+  <!-- le resolver qui va permettre a jsf d'exploiter des beans déclaré dans 
 			spring -->
-		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-	</application>
+  <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+ </application>
 </faces-config>

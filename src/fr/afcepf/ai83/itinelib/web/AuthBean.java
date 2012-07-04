@@ -1,6 +1,9 @@
 package fr.afcepf.ai83.itinelib.web;
 
-import java.io.IOException;
+import java.util.Enumeration;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +11,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
-import fr.afcepf.ai83.itinelib.model.Abonne;
 import fr.afcepf.ai83.itinelib.model.Utilisateur;
 import fr.afcepf.ai83.itinelib.service.IUtilisateurService;
 
@@ -18,26 +20,9 @@ public class AuthBean {
 	
 	private String email;
 	private String password;
-	private Abonne abonne;
 	private Utilisateur current;
-	private String isAdmin;
-	private String nomAbonne;
-	private String prenomAbonne;
-	private Integer idAbonne;
-	private String genreAbonne;
-	private UserProfilMyAccountBean userProfilMyAccountBean = new UserProfilMyAccountBean();
+	private boolean admin;
 	
-
-
-	public UserProfilMyAccountBean getUserProfilMyAccountBean() {
-		return userProfilMyAccountBean;
-	}
-
-	public void setUserProfilMyAccountBean(
-			UserProfilMyAccountBean userProfilMyAccountBean) {
-		this.userProfilMyAccountBean = userProfilMyAccountBean;
-	}
-
 	@Autowired
 	private transient IUtilisateurService iUtilisateurService;
 	
@@ -51,40 +36,27 @@ public class AuthBean {
         	lien = "";
         } else {
         	if(current.getRole().equals("User")) {
-        	
-        		//Passer les info dans le UserProfilMyAccountBean
-        		userProfilMyAccountBean.setCurrentUser(current);
-        		userProfilMyAccountBean.setCurrentAbonne(current.getAbonne());
-        		userProfilMyAccountBean.init();
-     
+        		admin = false;
         		lien =  "userHome";
-     
         	} else if(current.getRole().equals("Administrateur")) {
+        		admin = true;
         		lien = "adminHome";
         	}
         }
 		System.out.println(lien);
+		System.out.println(admin);
         return lien;
     }
-
-	public void setIsAdmin(String isAdmin){
-		this.isAdmin = isAdmin;
-	}
-
-	public String getIsAdmin(){
-		current = iUtilisateurService.find(email, password);
-		String lien="";
-		System.out.println(current.getRole());
-		if(!current.getRole().equals("Administrateur")) {
-			lien = "accessDenied";
-		}
-		return lien;
-	}
 	
-//	public String logout() {
-//        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-//        return "index?faces-redirect=true";
-//    }
+	public String logout(){
+		HttpServletRequest request =
+			(HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		for(Enumeration en = request.getSession().getAttributeNames();en.hasMoreElements();){
+			request.getSession().setAttribute(en.nextElement().toString(), null);
+		}
+		this.current = null;
+		return "login";
+	}
 
 	
 	/* Accessors */
@@ -93,6 +65,30 @@ public class AuthBean {
         return current != null;
     }
 	
+	public boolean isAdmin() {
+		System.out.println("##################################################");
+		System.out.println("COUCOU");
+//		System.out.println(current);
+//		System.out.println(current.getRole());
+		System.out.println("##################################################");
+		if(current!=null && current.getRole().equals("Administrateur")) {
+			admin = true;
+		} else {
+			admin = false;
+		}
+		System.out.println(admin);
+		System.out.println("##################################################");
+		return admin;
+	}
+
+
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -122,42 +118,6 @@ public class AuthBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getNomAbonne() {
-		return nomAbonne;
-	}
 
-	public void setNomAbonne(String nomAbonne) {
-		this.nomAbonne = nomAbonne;
-	}
-
-	public String getPrenomAbonne() {
-		return prenomAbonne;
-	}
-
-	public void setPrenomAbonne(String prenomAbonne) {
-		this.prenomAbonne = prenomAbonne;
-	}
-
-	public Integer getIdAbonne() {
-		return idAbonne;
-	}
-
-	public void setIdAbonne(Integer idAbonne) {
-		this.idAbonne = idAbonne;
-	}
-	
-	public String getGenreAbonne() {
-		return genreAbonne;
-	}
-
-	public void setGenreAbonne(String genreAbonne) {
-		genreAbonne = genreAbonne;
-	}
-	public Abonne getAbonne() {
-		return abonne;
-	}
-
-	public void setAbonne(Abonne abonne) {
-		this.abonne = abonne;
-	}
 }
+
