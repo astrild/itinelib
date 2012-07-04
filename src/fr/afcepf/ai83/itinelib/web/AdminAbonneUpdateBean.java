@@ -34,7 +34,7 @@ import fr.afcepf.ai83.itinelib.service.IVilleService;
 
 @Component("adminAbonnesUpdateBean")
 @Scope("session")
-public class adminAbonneUpdateBean implements Serializable {
+public class AdminAbonneUpdateBean implements Serializable {
 
 	private AbonneView currentAbonneView;
 	private Abonne currentAbonne;
