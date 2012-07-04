@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
+import fr.afcepf.ai83.itinelib.model.Abonne;
 import fr.afcepf.ai83.itinelib.model.Utilisateur;
 import fr.afcepf.ai83.itinelib.service.IUtilisateurService;
 
@@ -17,9 +18,26 @@ public class AuthBean {
 	
 	private String email;
 	private String password;
+	private Abonne abonne;
 	private Utilisateur current;
 	private String isAdmin;
+	private String nomAbonne;
+	private String prenomAbonne;
+	private Integer idAbonne;
+	private String genreAbonne;
+	private UserProfilMyAccountBean userProfilMyAccountBean = new UserProfilMyAccountBean();
 	
+
+
+	public UserProfilMyAccountBean getUserProfilMyAccountBean() {
+		return userProfilMyAccountBean;
+	}
+
+	public void setUserProfilMyAccountBean(
+			UserProfilMyAccountBean userProfilMyAccountBean) {
+		this.userProfilMyAccountBean = userProfilMyAccountBean;
+	}
+
 	@Autowired
 	private transient IUtilisateurService iUtilisateurService;
 	
@@ -33,7 +51,14 @@ public class AuthBean {
         	lien = "";
         } else {
         	if(current.getRole().equals("User")) {
+        	
+        		//Passer les info dans le UserProfilMyAccountBean
+        		userProfilMyAccountBean.setCurrentUser(current);
+        		userProfilMyAccountBean.setCurrentAbonne(current.getAbonne());
+        		userProfilMyAccountBean.init();
+     
         		lien =  "userHome";
+     
         	} else if(current.getRole().equals("Administrateur")) {
         		lien = "adminHome";
         	}
@@ -97,5 +122,42 @@ public class AuthBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getNomAbonne() {
+		return nomAbonne;
+	}
 
+	public void setNomAbonne(String nomAbonne) {
+		this.nomAbonne = nomAbonne;
+	}
+
+	public String getPrenomAbonne() {
+		return prenomAbonne;
+	}
+
+	public void setPrenomAbonne(String prenomAbonne) {
+		this.prenomAbonne = prenomAbonne;
+	}
+
+	public Integer getIdAbonne() {
+		return idAbonne;
+	}
+
+	public void setIdAbonne(Integer idAbonne) {
+		this.idAbonne = idAbonne;
+	}
+	
+	public String getGenreAbonne() {
+		return genreAbonne;
+	}
+
+	public void setGenreAbonne(String genreAbonne) {
+		genreAbonne = genreAbonne;
+	}
+	public Abonne getAbonne() {
+		return abonne;
+	}
+
+	public void setAbonne(Abonne abonne) {
+		this.abonne = abonne;
+	}
 }
